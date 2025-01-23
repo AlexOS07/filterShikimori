@@ -750,7 +750,9 @@
         var year = now.getFullYear();
         var seasons = ['winter', 'spring', 'summer', 'fall'];
         var seasonIndex = (month + 1) % 12 === 0 ? 0 : Math.floor((month + 1) / 3); // Определение индекса сезона
-        return "".concat(seasons[seasonIndex], "_e").concat(month === 11 ? year + 1 : year);
+        var seasonIndexPrevious = seasonIndex + 1;
+        return "".concat(seasons[seasonIndex], "_").concat(month === 11 ? year + 1 : year);
+        return "".concat(seasons[seasonIndexPrevious], "_").concat(month === 11 ? year + 1 : year);
       }
       function generateDynamicSeasons() {
         var now = new Date();
