@@ -1,6 +1,6 @@
 (function () {
     'use strict';
 
-    Lampa.Utils.putScriptAsync(['https://github.com/AlexOS07/filterShikimori/blob/main/Shikimori/Shikimori.js'], function () { });
+    Lampa.Utils.putScriptAsync(['https://alexos07.github.io/filterShikimori/Shikimori/Shikimori.js'], function () { });
 
 })();
