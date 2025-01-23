@@ -756,6 +756,9 @@
         var now = new Date();
         var seasons = new Set([getCurrentSeason()]);
 
+
+
+
         // Добавляем следующие три сезона
         for (var i = 1; i <= 3; i++) {
           var nextDate = new Date(now);
@@ -768,12 +771,14 @@
         var currentYear = new Date().getFullYear();
         var ranges = [];
 
-        // Генерируем диапазоны по 10 лет
-        for (var startYear = currentYear; startYear >= 2000; startYear -= 10) {
+        // Генерируем диапазоны по 5 лет
+        for (var startYear = currentYear; startYear >= 2000; startYear -= 5) {
           var endYear = Math.max(startYear - 9, 2000);
           ranges.push("".concat(endYear, "_").concat(startYear));
         }
 
+
+        
         // Добавляем статические диапазоны для старших годов
         // ranges.push("199x", "198x", "ancient");
         return ranges;
