@@ -753,6 +753,7 @@
         return "".concat(seasons[seasonIndex], "_").concat(month === 11 ? year + 1 : year);
       }
 
+      /** Предыдущий сезон 
       function getPreviousSeason() {
         var now = new Date();
         var month = now.getMonth();
@@ -763,12 +764,39 @@
         // Вычисление индекса предыдущего сезона
         var previousSeasonIndex = (seasonIndex - 1 + seasons.length) % seasons.length;
         return "".concat(seasons[previousSeasonIndex], "_").concat(month === 0 ? year - 1 : year);
+      } **/
+     
+      function getAllSeasons() {
+        var now = new Date();
+        var month = now.getMonth(); // Текущий месяц
+        var year = now.getFullYear(); // Текущий год
+        var seasons = ['winter', 'spring', 'summer', 'fall']; // Массив сезонов
+      
+        // Создаем массив для хранения сезонов
+        var allSeasons = [];
+      
+        // Определяем индекс текущего сезона
+        var seasonIndex = Math.floor((month + 1) / 3) % 4;
+      
+        // Заполняем массив всем сезонами текущего года и начиная с предыдущего
+        for (var i = 0; i < 4; i++) {
+            // Рассчитываем индекс сезона
+            var currentSeasonIndex = (seasonIndex - i + 4) % 4; // Используем 4 здесь, чтобы избежать отрицательных индексов
+            // Определяем корректный год для сезона
+            var seasonYear = (month === 11 && i === 0) ? year + 1 : (month === 0 && i === 3) ? year - 1 : year;
+            // Добавляем сезон в массив
+            allSeasons.push(`${seasons[currentSeasonIndex]}_${seasonYear}`);
+        }
+      
+        return allSeasons;
       }
+           
 
       function generateDynamicSeasons() {
         var now = new Date();
         var seasons = new Set([getCurrentSeason()]);
-        var seasons = new Set([getPreviousSeason()]);
+        //var seasons = new Set([getPreviousSeason()]);
+        var seasons = new Set([getAllSeasons()]);
 
         // Добавляем следующие три сезона
         for (var i = 1; i <= 3; i++) {
