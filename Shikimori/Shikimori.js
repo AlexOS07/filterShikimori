@@ -772,7 +772,7 @@
         var ranges = [];
 
         // Генерируем диапазоны по 5 лет
-        for (var startYear = currentYear; startYear >= 2000; startYear -= 5) {
+        for (var startYear = currentYear; startYear >= 2016; startYear -= 5) {
           var endYear = Math.max(startYear - 4, 2000);
           ranges.push("".concat(endYear, "_").concat(startYear));
         }
