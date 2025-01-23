@@ -751,13 +751,11 @@
         var seasons = ['Зима', 'Весна', 'Лето', 'Осень'];
         var seasonIndex = (month + 1) % 12 === 0 ? 0 : Math.floor((month + 1) / 3); // Определение индекса сезона
         return "".concat(seasons[seasonIndex], "_").concat(month === 11 ? year + 1 : year);
+        return "".concat(seasons[seasonIndex - 1], "_").concat(month === 11 ? year + 1 : year);
       }
       function generateDynamicSeasons() {
         var now = new Date();
         var seasons = new Set([getCurrentSeason()]);
-
-
-
 
         // Добавляем следующие три сезона
         for (var i = 1; i <= 3; i++) {
@@ -776,9 +774,7 @@
           var endYear = Math.max(startYear - 4, 2016);
           ranges.push("".concat(endYear, "_").concat(startYear));
         }
-
-
-        
+      
         // Добавляем статические диапазоны для старших годов
         // ranges.push("199x", "198x", "ancient");
         return ranges;
