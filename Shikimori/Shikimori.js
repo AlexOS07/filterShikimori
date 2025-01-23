@@ -743,7 +743,7 @@
           code: "ranked_shiki"
         }]
       };
-      /** Season Range 
+      /** Season Range **/
       function getCurrentSeason() {
         var now = new Date();
         var month = now.getMonth();
@@ -751,7 +751,7 @@
         var seasons = ['winter', 'spring', 'summer', 'fall'];
         var seasonIndex = (month + 1) % 12 === 0 ? 0 : Math.floor((month + 1) / 3); // Определение индекса сезона
         return "".concat(seasons[seasonIndex], "_").concat(month === 11 ? year + 1 : year);
-      }**/
+      }
 
       /** Предыдущий сезон 
       function getPreviousSeason() {
