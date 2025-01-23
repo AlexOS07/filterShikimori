@@ -748,7 +748,7 @@
         var now = new Date();
         var month = now.getMonth();
         var year = now.getFullYear();
-        var seasons = ['winter', 'spring', 'summer', 'fall'];
+        var seasons = ['Зима', 'Весна', 'Лето', 'Осень'];
         var seasonIndex = (month + 1) % 12 === 0 ? 0 : Math.floor((month + 1) / 3); // Определение индекса сезона
         return "".concat(seasons[seasonIndex], "_").concat(month === 11 ? year + 1 : year);
       }
